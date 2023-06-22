@@ -36,4 +36,8 @@ dependencies {
   implementation deps.activityktx
   implementation deps.viewmodelktx
   implementation deps.viewmodelsavedstate
+
+
+  implementation deps.workflow.container_android
+  implementation deps.workflow.core_android
 }

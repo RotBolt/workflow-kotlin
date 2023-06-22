@@ -1,0 +1,43 @@
+package workflow.tutorial
+
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.workflow1.ui.LayoutRunner
+import com.squareup.workflow1.ui.LayoutRunner.Companion.bind
+import com.squareup.workflow1.ui.ScreenViewFactory
+import com.squareup.workflow1.ui.ScreenViewFactory.Companion
+import com.squareup.workflow1.ui.ScreenViewRunner
+import com.squareup.workflow1.ui.ViewEnvironment
+import com.squareup.workflow1.ui.ViewFactory
+import workflow.tutorial.views.databinding.TodoListViewBinding
+import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
+import com.squareup.workflow1.ui.backPressedHandler
+import workflow.tutorial.views.TodoListAdapter
+
+@OptIn(WorkflowUiExperimentalApi::class)
+class TodoListScreenViewRunner(
+  private val binding: TodoListViewBinding
+) : ScreenViewRunner<TodoListScreen> {
+
+  val adapter = TodoListAdapter()
+  init {
+    binding.todoList.layoutManager = LinearLayoutManager(binding.root.context)
+    binding.todoList.adapter = adapter
+  }
+  override fun showRendering(
+    rendering: TodoListScreen,
+    viewEnvironment: ViewEnvironment
+  ) {
+    binding.root.backPressedHandler = rendering.onBack
+
+    with(binding.todoListWelcome) {
+      text = resources.getString(R.string.todo_list_welcome, rendering.username)
+    }
+
+    adapter.todoList = rendering.todoTitles
+    adapter.notifyDataSetChanged()
+  }
+
+  companion object : ScreenViewFactory<TodoListScreen> by ScreenViewFactory.fromViewBinding(
+    TodoListViewBinding::inflate, ::TodoListScreenViewRunner
+  )
+}

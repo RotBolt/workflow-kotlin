@@ -12,6 +12,7 @@ import com.squareup.workflow1.ui.ViewRegistry
 import com.squareup.workflow1.ui.WorkflowLayout
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import com.squareup.workflow1.ui.asScreen
+import com.squareup.workflow1.ui.container.BackStackContainer
 import com.squareup.workflow1.ui.container.withRegistry
 import com.squareup.workflow1.ui.renderWorkflowIn
 import kotlinx.coroutines.flow.StateFlow
@@ -20,7 +21,12 @@ import kotlinx.coroutines.flow.map
 class TutorialActivity : AppCompatActivity() {
 
 
-  private val viewRegistry = ViewRegistry(WelcomeScreenViewRunner)
+  private val viewRegistry = ViewRegistry(
+    // No need to add BackStackContainer. Its now by default built in ViewRegistry
+    // com.squareup.workflow1.ui.backstack.BackStackContainer,
+    WelcomeScreenViewRunner,
+    TodoListScreenViewRunner
+  )
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -40,9 +46,9 @@ class TutorialActivity : AppCompatActivity() {
 }
 
 class TutorialViewModel(savedState: SavedStateHandle): ViewModel() {
-  val renderings : StateFlow<WelcomeScreen> by lazy {
+  val renderings : StateFlow<Any> by lazy {
     renderWorkflowIn(
-      workflow = WelcomeWorkflow,
+      workflow = RootWorkflow,
       scope = viewModelScope,
       savedStateHandle = savedState
     )
