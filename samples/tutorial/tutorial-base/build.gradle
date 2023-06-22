@@ -32,4 +32,8 @@ dependencies {
   implementation deps.material
   implementation deps.workflow.core_android
   implementation project(':tutorial-views')
+
+  implementation deps.activityktx
+  implementation deps.viewmodelktx
+  implementation deps.viewmodelsavedstate
 }
