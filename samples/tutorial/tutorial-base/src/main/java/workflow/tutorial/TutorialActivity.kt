@@ -25,7 +25,8 @@ class TutorialActivity : AppCompatActivity() {
     // No need to add BackStackContainer. Its now by default built in ViewRegistry
     // com.squareup.workflow1.ui.backstack.BackStackContainer,
     WelcomeScreenViewRunner,
-    TodoListScreenViewRunner
+    TodoListScreenViewRunner,
+    TodoEditScreenViewRunner
   )
 
   override fun onCreate(savedInstanceState: Bundle?) {

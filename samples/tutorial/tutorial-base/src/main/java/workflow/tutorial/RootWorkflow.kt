@@ -43,10 +43,10 @@ object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Scr
     when(renderState) {
       is Welcome -> {}
       is Todo -> {
-        val todoScreen = context.renderChild(child = TodoListWorkflow, ListProps(username = renderState.username)) {
+        val todoScreens = context.renderChild(child = TodoListWorkflow, ListProps(username = renderState.username)) {
           logout()
         }
-        backStackScreens.add(todoScreen)
+        backStackScreens.addAll(todoScreens)
       }
     }
 

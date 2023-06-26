@@ -1,17 +1,13 @@
 package workflow.tutorial
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.squareup.workflow1.ui.LayoutRunner
-import com.squareup.workflow1.ui.LayoutRunner.Companion.bind
 import com.squareup.workflow1.ui.ScreenViewFactory
-import com.squareup.workflow1.ui.ScreenViewFactory.Companion
 import com.squareup.workflow1.ui.ScreenViewRunner
 import com.squareup.workflow1.ui.ViewEnvironment
-import com.squareup.workflow1.ui.ViewFactory
-import workflow.tutorial.views.databinding.TodoListViewBinding
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import com.squareup.workflow1.ui.backPressedHandler
 import workflow.tutorial.views.TodoListAdapter
+import workflow.tutorial.views.databinding.TodoListViewBinding
 
 @OptIn(WorkflowUiExperimentalApi::class)
 class TodoListScreenViewRunner(
@@ -34,6 +30,7 @@ class TodoListScreenViewRunner(
     }
 
     adapter.todoList = rendering.todoTitles
+    adapter.onTodoSelected = rendering.onTodoSelected
     adapter.notifyDataSetChanged()
   }
 
