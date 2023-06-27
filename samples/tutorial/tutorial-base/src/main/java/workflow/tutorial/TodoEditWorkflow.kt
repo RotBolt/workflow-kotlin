@@ -9,7 +9,6 @@ import workflow.tutorial.TodoEditWorkflow.Output
 import workflow.tutorial.TodoEditWorkflow.Output.Discard
 import workflow.tutorial.TodoEditWorkflow.Output.Save
 import workflow.tutorial.TodoEditWorkflow.State
-import workflow.tutorial.TodoListWorkflow.TodoModel
 
 object TodoEditWorkflow : StatefulWorkflow<EditProps, State, Output, TodoEditScreen>() {
 

@@ -12,6 +12,7 @@ import workflow.tutorial.RootWorkflow.State
 import workflow.tutorial.RootWorkflow.State.Todo
 import workflow.tutorial.RootWorkflow.State.Welcome
 import workflow.tutorial.TodoListWorkflow.ListProps
+import workflow.tutorial.TodoWorkflow.TodoProps
 
 @OptIn(WorkflowUiExperimentalApi::class)
 object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Screen>>() {
@@ -43,7 +44,7 @@ object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Scr
     when(renderState) {
       is Welcome -> {}
       is Todo -> {
-        val todoScreens = context.renderChild(child = TodoListWorkflow, ListProps(username = renderState.username)) {
+        val todoScreens = context.renderChild(child = TodoWorkflow, TodoProps(username = renderState.username)) {
           logout()
         }
         backStackScreens.addAll(todoScreens)
