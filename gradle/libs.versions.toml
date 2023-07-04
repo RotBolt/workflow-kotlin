@@ -1,6 +1,6 @@
 [versions]
 
-androidTools = "7.4.1"
+androidTools = "7.4.2"
 
 compileSdk = "33"
 minSdk = "21"
@@ -23,13 +23,13 @@ androidx-paging = "3.0.1"
 androidx-profileinstaller = "1.2.0-alpha02"
 androidx-recyclerview = "1.2.1"
 androidx-room = "2.4.0-alpha04"
-androidx-savedstate = "1.1.0"
+androidx-savedstate = "1.2.1"
 androidx-startup = "1.1.0"
 androidx-test = "1.5.0"
 androidx-test-espresso = "3.5.1"
 androidx-test-junit-ext = "1.1.5"
 androidx-test-runner = "1.5.2"
-androidx-test-truth-ext = "1.4.0"
+androidx-test-truth-ext = "1.5.0"
 androidx-tracing = "1.1.0"
 androidx-transition = "1.4.1"
 androidx-viewbinding = "4.2.1"
@@ -46,44 +46,45 @@ google-material = "1.4.0"
 
 groovy = "3.0.9"
 jUnit = "4.13.2"
+java-diff-utils = "4.12"
 javaParser = "3.24.0"
 kotest = "5.1.0"
 kotlin = "1.8.10"
 
 kotlinx-binary-compatibility = "0.13.2"
 kotlinx-coroutines = "1.7.1"
-kotlinx-serialization-json = "1.3.2"
-kotlinx-atomicfu = "0.17.2"
+kotlinx-serialization-json = "1.5.1"
+kotlinx-atomicfu = "0.21.0"
 
 ktlint = "0.49.1"
 ktlint-gradle = "0.1.7"
 material = "1.3.0"
 mavenPublish = "0.13.0"
 
-mockito-core = "3.3.3"
+mockito-core = "3.12.4"
 mockito-kotlin = "3.2.0"
 
-mockk = "1.11.0"
-robolectric = "4.9.2"
+mockk = "1.13.5"
+robolectric = "4.10.3"
 
 rxjava2-android = "2.1.1"
 rxjava2-core = "2.2.21"
 
 squareup-curtains = "1.2.4"
 squareup-cycler = "0.1.9"
-squareup-leakcanary = "2.10"
-squareup-moshi = "1.13.0"
+squareup-leakcanary = "2.12"
+squareup-moshi = "1.15.0"
 squareup-okhttp = "4.9.1"
-squareup-okio = "3.0.0"
+squareup-okio = "3.3.0"
 squareup-radiography = "2.4.1"
 squareup-retrofit = "2.9.0"
 squareup-seismic = "1.0.3"
 squareup-workflow = "1.0.0"
 
-timber = "4.7.1"
-truth = "1.1.3"
-turbine = "0.13.0"
-vanniktech-publish = "0.22.0"
+timber = "5.0.1"
+truth = "1.1.5"
+turbine = "1.0.0"
+vanniktech-publish = "0.25.2"
 
 [plugins]
 
@@ -182,7 +183,9 @@ google-ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin
 
 hamcrest = "org.hamcrest:hamcrest-core:2.2"
 
-jetbrains-annotations = "org.jetbrains:annotations:19.0.0"
+java-diff-utils = { module = "io.github.java-diff-utils:java-diff-utils", version.ref = "java-diff-utils" }
+
+jetbrains-annotations = "org.jetbrains:annotations:24.0.1"
 
 junit = { module = "junit:junit", version.ref = "jUnit" }
 
