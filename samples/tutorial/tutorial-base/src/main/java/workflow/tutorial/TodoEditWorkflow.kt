@@ -57,13 +57,13 @@ object TodoEditWorkflow : StatefulWorkflow<EditProps, State, Output, TodoEditScr
 
   override fun snapshotState(state: State): Snapshot? = null
 
-  private fun onTitleChanged(title: String) = action { state = state.withTitle(title) }
+  internal fun onTitleChanged(title: String) = action { state = state.withTitle(title) }
 
-  private fun onNoteChanged(note: String) = action { state = state.withNote(note) }
+  internal fun onNoteChanged(note: String) = action { state = state.withNote(note) }
 
-  private fun onDiscard() = action { setOutput(Discard) }
+  internal fun onDiscard() = action { setOutput(Discard) }
 
-  private fun onSave() = action { setOutput(Save(state.todo)) }
+  internal fun onSave() = action { setOutput(Save(state.todo)) }
 
   private fun State.withTitle(title: String) = copy(todo = todo.copy(title = title))
   private fun State.withNote(note: String) = copy(todo = todo.copy(note = note))

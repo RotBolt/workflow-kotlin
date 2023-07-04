@@ -40,4 +40,7 @@ dependencies {
 
   implementation deps.workflow.container_android
   implementation deps.workflow.core_android
+
+  testImplementation deps.kotlin.test
+  testImplementation deps.workflow.testing
 }

@@ -29,11 +29,13 @@ object WelcomeWorkflow : StatefulWorkflow<Unit, State, LoggedIn, WelcomeScreen>(
   )
   override fun snapshotState(state: State): Snapshot? = null
 
-  private fun onUsernameChanged(username: String) = action {
+  internal fun onUsernameChanged(username: String) = action {
     state = state.copy(username = username + "a")
   }
 
-  private fun onLogin() =action {
-    setOutput(LoggedIn(username = state.username))
+  internal fun onLogin() =action {
+    if (state.username.isNotEmpty()) {
+      setOutput(LoggedIn(username = state.username))
+    }
   }
 }
